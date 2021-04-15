@@ -1,7 +1,7 @@
 node {
     def app
     stage('Clone Repository') {
-       git branch: "master", url: "https://github.com/waseemp/html-new.git"
+       git branch: "main", url: "https://github.com/waseemp/html-new.git"
     }
     stage('Docker Build') {
        sh "docker build -t 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest ."
