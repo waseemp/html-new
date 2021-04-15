@@ -7,7 +7,7 @@ node {
        sh "docker build -t 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest ."
     }
     stage('Push Image to ECR') {
-    docker.withRegistry('https://219004301212.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:java-ecr-role') {
+    docker.withRegistry('https://219004301212.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:my.aws.credentials') {
        sh "docker push 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest"
     }
     }
