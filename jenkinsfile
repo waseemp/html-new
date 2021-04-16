@@ -14,10 +14,13 @@ node {
         docker.withRegistry('https://219004301212.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:my.aws.credentials') {
            sh "docker push 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest"
         }
-         stage('Send ECR status') {
+        stage('Send ECR status') {
            office365ConnectorSend message: 'Docker Image pushed to ECR succesfully', webhookUrl: 'https://tuigroup.webhook.office.com/webhookb2/dee846f6-dc11-45a3-b329-1855df85d23f@e3e1f65b-b973-440d-b61c-bc895fc98e28/IncomingWebhook/156b88146768481991cf30bb42a30aac/ed76e650-2edd-4741-b260-468a3e039897'
         }
+        stage('Pull Image from ECR') {
+          docker.withRegistry('https://219004301212.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:my.aws.credentials') {
+          sh "docker pull 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest"
         }
-    
+        }
 }
 
