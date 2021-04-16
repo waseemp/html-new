@@ -1,5 +1,6 @@
 node {
     def app
+    def MSTEAMS_WEBHOOK
     withCredentials([string(credentialsId: 'devops-demo-webhook', variable: 'MSTEAMS_WEBHOOK')]) 
     {
         stage('Send start status') {
