@@ -7,6 +7,13 @@ node {
         stage('Clone Repository') {
            git branch: "main", url: "https://github.com/waseemp/html-new.git"
         }
+        stage('sonarqube') {
+           sh "sonar-scanner \
+   -Dsonar.projectKey=helloworld \
+   -Dsonar.sources=. \
+  -Dsonar.host.url=http://34.228.52.90:9000 \
+  -Dsonar.login=f3fd8567747544c39fb8c77f2b47035c05fa2289"
+        }
         stage('Docker Build') {
            sh "docker build -t 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest ."
         }
