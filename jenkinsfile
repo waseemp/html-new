@@ -9,10 +9,10 @@ node {
         }
         stage('sonarqube') {
            sh "sonar-scanner \
-   -Dsonar.projectKey=helloworld \
-   -Dsonar.sources=. \
+  -Dsonar.projectKey=helloworld \
+  -Dsonar.sources=. \
   -Dsonar.host.url=http://34.228.52.90:9000 \
-  -Dsonar.login=f3fd8567747544c39fb8c77f2b47035c05fa2289"
+  -Dsonar.login=50e7814f23b6865dfc6bdc389b7acbf85ced5ec1"
         }
         stage('Docker Build') {
            sh "docker build -t 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest ."
