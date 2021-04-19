@@ -12,7 +12,7 @@ node {
   -Dsonar.projectKey=helloworld \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://34.228.52.90:9000 \
-  -Dsonar.login=f9bc01ceaa595f9038a85994a57db21d12e17463"
+  -Dsonar.login=12de9aaa80881dd28c5c59bc749b8dbbcf75b7b0"
         }
         stage('Docker Build') {
            sh "docker build -t 219004301212.dkr.ecr.us-east-1.amazonaws.com/helloworldjava:latest ."
