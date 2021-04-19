@@ -7,7 +7,7 @@ node {
         stage('Clone Repository') {
            git branch: "main", url: "https://github.com/waseemp/html-new.git"
         }
-        stage('sonarqube') {
+        stage('sonarscanner') {
            sh "sonar-scanner \
   -Dsonar.projectKey=helloworld \
   -Dsonar.sources=. \
